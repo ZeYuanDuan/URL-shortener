@@ -6,6 +6,14 @@ app.get("/", (req, res) => {
   res.send("express app");
 });
 
+app.get("/", (req, res) => {
+  res.redirect("/movies");
+});
+
+app.get("/movies", (req, res) => {
+  res.send("listing movies");
+});
+
 app.listen(port, () => {
   console.log(`express server is running on http://localhost:${port}`);
 });
