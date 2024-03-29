@@ -1,15 +1,36 @@
 document.querySelector("#url-form").onsubmit = function (event) {
   event.preventDefault();
+  submitUrl();
+};
 
-  let url = document.querySelector("#url-input").value;
-  let shortenedUrl =
-    "https://tinyurl.herokuapp.com/" +
-    Math.random().toString(36).substring(2, 7);
+function submitUrl() {
+  const urlToShorten = document.getElementById("url-input").value;
 
+  fetch("/shorten", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ url: urlToShorten }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.shortUrl) {
+        // Handle the response with the shortened URL
+        displayShortenedUrl(data.shortUrl);
+      } else {
+        // Handle any error or data issues
+        console.error("No shortened URL returned");
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}
+
+function displayShortenedUrl(url) {
   document.querySelector("#form-container").style.display = "none";
   document.querySelector("#result-container").style.display = "block";
-  document.querySelector("#shortened-url").innerText = shortenedUrl;
-};
+  document.querySelector("#shortened-url").innerText = url;
+}
 
 document
   .querySelector("#copy-button")
