@@ -1,20 +1,16 @@
 <div class="container">
-      <div id="form-container">
-        <h2>URL Shortener</h2>
-        <form id="url-form">
-          <input
-            type="text"
-            id="url-input"
-            placeholder="Input URL here"
-            required
-          />
-          <button type="submit">Shorten</button>
-        </form>
-      </div>
-      <div id="result-container" style="display:none;">
-        <h2>URL Shortener</h2>
-        <p>Success! Please use this link:</p>
-        <input type="text" id="shortened-url" readonly />
-        <button onclick="copyToClipboard()">Copy</button>
-      </div>
-    </div>
+  <div id="form-container">
+    <h2>URL Shortener</h2>
+    <form id="url-form">
+      <input type="text" id="url-input" placeholder="Input URL here" required />
+      <button type="submit">Shorten</button>
+    </form>
+  </div>
+  <div id="result-container" style="display:none;">
+    <h2>URL Shortener</h2>
+    <p>Success! Please use this link:</p>
+    <p id="shortened-url"></p>
+    <button id="copy-button">Copy</button>
+    <button id="refresh-button" onclick="resetForm()">Refresh</button>
+  </div>
+</div>

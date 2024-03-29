@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
@@ -12,7 +13,8 @@ body, html {
   flex-direction: column;
 }
 
-#form-container, #result-container {
+#form-container,
+#result-container {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 5px;
@@ -24,7 +26,7 @@ h2 {
   color: #333;
 }
 
-input[type=text] {
+input[type="text"] {
   padding: 10px;
   margin: 10px 0;
   width: 80%;
@@ -43,4 +45,15 @@ button {
 
 button:hover {
   opacity: 0.8;
+}
+
+#refresh-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
 }
