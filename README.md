@@ -19,7 +19,7 @@ This project requires [Node.js](https://nodejs.org/en) to be installed on your s
 
 Execute the installation process in the terminal (for Windows users, execute on [Git Bash](https://gitforwindows.org/)):
 
-1. Use the following command to clone this project to your desired local folder: `https://github.com/ZeYuanDuan/URL-shortener.git`
+1. Use the following command to clone this project to your desired local folder: `git clone https://github.com/ZeYuanDuan/URL-shortener.git`
 
 2. Change directory to the project folder: `cd URL-shortener`
 
