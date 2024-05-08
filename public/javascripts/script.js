@@ -4,7 +4,7 @@ document.querySelector("#url-form").onsubmit = function (event) {
 };
 
 function submitUrl() {
-  const urlToShorten = document.getElementById("url-input").value;
+  const urlToShorten = document.querySelector("#url-input").value;
 
   fetch("/shorten", {
     method: "POST",
@@ -16,10 +16,8 @@ function submitUrl() {
     .then((response) => response.json())
     .then((data) => {
       if (data.shortUrl) {
-        // Handle the response with the shortened URL
         displayShortenedUrl(data.shortUrl);
       } else {
-        // Handle any error or data issues
         console.error("No shortened URL returned");
       }
     })
@@ -49,6 +47,7 @@ function copyToClipboard() {
 }
 
 document.querySelector("#refresh-button").addEventListener("click", resetForm);
+
 function resetForm() {
   document.querySelector("#result-container").style.display = "none";
   document.querySelector("#url-input").value = "";
