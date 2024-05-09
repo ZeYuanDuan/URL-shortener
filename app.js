@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 const FILE_PATH = "./public/jsons/urls.json";
-const URL_DOMAIN = "https://shorty.herokuapp.com/";
+const URL_DOMAIN = "http://localhost:3000/";
 
 app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
@@ -35,6 +35,18 @@ app.post("/shorten", (req, res) => {
   writeUrlsToJsonFile(urlsData);
 
   res.status(201).json({ shortUrl: URL_DOMAIN + shortCode });
+});
+
+app.get("/:shortCode", (req, res) => {
+  const shortCode = req.params.shortCode;
+  const urlsData = readUrlsFromJsonFile();
+
+  const originalUrl = urlsData.urls[shortCode];
+  if (originalUrl) {
+    res.redirect(originalUrl);
+  } else {
+    res.status(404).send("Short URL not found");
+  }
 });
 
 app.listen(port, () => {
