@@ -55,7 +55,7 @@ function findExistingShortUrl(urlsData, originalUrl) {
   const existingEntry = Object.entries(urlsData.urls).find(
     (entry) => entry[1] === originalUrl
   );
-  return existingEntry ? `https://your-domain.com/${existingEntry[0]}` : null;
+  return existingEntry ? URL_DOMAIN + existingEntry[0] : null;
 }
 
 function generateShortCode() {
